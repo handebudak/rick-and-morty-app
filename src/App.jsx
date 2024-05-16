@@ -15,29 +15,28 @@ function App() {
         console.error("Error fetching characters:", error);
       }
     };
-
     fetchCharacters();
   }, []);
 
   return (
-    <>
-      <div className="grid grid-cols-3 gap-2 m-4">
+    <main className="bg-black">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 p-6 sm:p-12">
         {characters.map((character) => (
           <li
-            className="flex flex-col gap-2 border p-3 border-gray-500 rounded-lg list-none bg-gray-300 shadow-md"
+            className="flex flex-col gap-2 border p-3 border-gray-300 list-none rounded-lg shadow-md bg-slate-100 m-4 "
             key={character.id}
           >
-            <img src={character.image} alt={character.name} />
-            <div>
-              <h2>{character.name}</h2>
-              <p>Status: {character.status}</p>
-              <p>Species: {character.species}</p>
-              <p>Origin: {character.origin.name}</p>
+            <img src={character.image} alt={character.name}></img>
+            <div className="text-sm sm:text-base md:text-lg lg:text-xl">
+              <h2> {character.name} </h2>
+              <p>Status: {character.status} </p>
+              <p>Species: {character.species} </p>
+              <p>Origin: {character.origin.name} </p>
             </div>
           </li>
         ))}
       </div>
-    </>
+    </main>
   );
 }
 
